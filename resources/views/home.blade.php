@@ -1,536 +1,837 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-  <head>
-    <meta charset="utf-8" />
-    <title>شركة توزيع المنتجات النفطية</title>
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"
-    />
-    <!-- Link Swiper's CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
-      <link rel="stylesheet" href="{{asset('css/stylehome.css')}}">
-      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
-<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"> -->
-<!-- jquery cdn link  -->
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
-    <!-- Demo styles -->
+<html lang="en">
 
-    <!-- video cdn library -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<head>
+    <meta charset="utf-8">
+    <title>Gymnast - Gym Website Template</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free Website Template" name="keywords">
+    <meta content="Free Website Template" name="description">
 
-    <style>
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
 
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
 
-      body {
-        /* background: #eee;
-        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-        font-size: 14px;
-        color: #000; */
-        margin: 0;
-        padding: 0;
-      }
+    <!-- Flaticon Font -->
+    <link href="lib/flaticon/font/flaticon.css" rel="stylesheet">
 
-      .swiper {
-        width: 100%;
-        height: 100%;
-        font-size: 14px;
-        position: relative;
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/style.min.css" rel="stylesheet">
+</head>
 
-      }
-
-      /* .swiper-slide { */
-        /* text-align: center; */
-        /* font-size: 18px;
-        background: #fff; */
-
-        /* Center slide text vertically */
-        /* display: -webkit-box;
-        display: -ms-flexbox;
-        display: -webkit-flex;
-        display: flex;
-        -webkit-box-pack: center;
-        -ms-flex-pack: center;
-        -webkit-justify-content: center;
-        justify-content: center;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        -webkit-align-items: center;
-        align-items: center;
-      }
-
-      .swiper-slide img {
-        display: block;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      } */
-
-    </style>
-  </head>
-
-  <body >
-    <!-- Swiper -->
-    <header id="header" dir="rtl">
-
-        <a href="#header" class="logo"><img src="logo.png" alt="" class="img_logo"></a>
-        <p id="title_logo">شركة توزيع المنتجات النفطية</p>
-        <div id="menu" class="fas fa-bars"></div>
-
-        <nav class="nav_container">
-            <a href="" class="nav_link">الصفحة الرئيسية</a>
-            <a href="#home" class="nav_link"> أستمارة تسجيل البطاقات</a>
-            <a href="#scanner_id" class="nav_link">المحطات</a>
-            <a href="#contact_wrapper" class="nav_link">أتصل بنا</a>
-
-            @if (Route::has('login'))
-                    @auth
-                        <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">لوحة التحكم</a>
-                    @else
-                        <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">تسجيل دخول</a>
-                    @endauth
-            @endif
-
-{{--                <!-- Authentication -->--}}
-{{--                <form method="POST" action="{{ route('logout') }}">--}}
-{{--                    @csrf--}}
-{{--                    <x-jet-dropdown-link--}}
-{{--                        href="{{ route('logout') }}"--}}
-{{--                        onclick="event.preventDefault(); this.closest('form').submit();" role="button"--}}
-{{--                    >--}}
-{{--                        {{ __('app.Log Out') }}--}}
-{{--                    </x-jet-dropdown-link>--}}
-{{--                </form>--}}
-        </nav>
-
-      </header>
-
-
-    <div class="swiper mySwiper bg-slider" dir="rtl">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide">
-            <img src="images/wholesale-hero.jpg" alt="">
-            <div class="text-content">
-              <h2 class="title">هـــيأة تــوزيع بغداد <span>قسم برمجيات التوزيع والطباعة الرقمية</span></h2>
-              <p>حسب توجيهات السيد مدير عام شركة توزيع المنتجات النفطية الأستاذ (حسين طالب عبود)، أوعز السيد مدير هيأة توزيع بغداد الأستاذ (محمد عبد الاله شبر) بأن تقوم المحطات الحكومية وابتداء من  شهر تشرين الثاني من العام الماضي  بتوزيع النفط الأبيض للمواطنين وحسب البطاقة الوقودية ويكون التوزيع من بداية الصباح حتى الساعة العاشرة ليلاَ  في العاصمة بغداد.ويقوم مدير الهيأة بمتابعة آلية توزيع النفط الأبيض إلى المواطنين بنفسه،</p>
-              <button class="read-btn">
-			  <a class="site" href="https://opdc.oil.gov.iq/">أقــرأ المــزيد </a>
-			  <i class="uil uil-arrow-right"></i></button>
+<body class="bg-white">
+<!-- Navbar Start -->
+<div class="container-fluid p-0 nav-bar">
+    <nav class="navbar navbar-expand-lg bg-none navbar-dark py-3">
+        <a href="" class="navbar-brand">
+            <h1 class="m-0 display-4 font-weight-bold text-uppercase text-white">Gymnast</h1>
+        </a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+            <div class="navbar-nav ml-auto p-4 bg-secondary">
+                <a href="index.html" class="nav-item nav-link active">Home</a>
+                <a href="about.html" class="nav-item nav-link">About Us</a>
+                <a href="feature.html" class="nav-item nav-link">Our Features</a>
+                <a href="class.html" class="nav-item nav-link">Classes</a>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
+                    <div class="dropdown-menu text-capitalize">
+                        <a href="blog.html" class="dropdown-item">Blog Grid</a>
+                        <a href="single.html" class="dropdown-item">Blog Detail</a>
+                    </div>
+                </div>
+                <a href="contact.html" class="nav-item nav-link">Contact</a>
             </div>
         </div>
-        <div class="swiper-slide">
-            <img src="images/1.jpg" alt="">
-          <div class="text-content">
-              <h2 class="title">هـــيأة تــوزيع بغداد <span>قسم برمجيات التوزيع والطباعة الرقمية</span></h2>
-            <p>حسب توجيهات السيد مدير عام شركة توزيع المنتجات النفطية الأستاذ (حسين طالب عبود)، أوعز السيد مدير هيأة توزيع بغداد الأستاذ (محمد عبد الاله شبر) بأن تقوم المحطات الحكومية وابتداء من  شهر تشرين الثاني من العام الماضي  بتوزيع النفط الأبيض للمواطنين وحسب البطاقة الوقودية ويكون التوزيع من بداية الصباح حتى الساعة العاشرة ليلاَ  في العاصمة بغداد.ويقوم مدير الهيأة بمتابعة آلية توزيع النفط الأبيض إلى المواطنين بنفسه،</p>
-
-              <button class="read-btn">
-                  <a class="site" href="https://opdc.oil.gov.iq/">أقــرأ المــزيد </a>
-                  <i class="uil uil-arrow-right"></i></button>          </div>
-        </div>
-        <div class="swiper-slide">
-            <img src="images/369.jpg" alt="">
-          <div class="text-content">
-              <h2 class="title">هـــيأة تــوزيع بغداد <span>قسم برمجيات التوزيع والطباعة الرقمية</span></h2>
-            <p>حسب توجيهات السيد مدير عام شركة توزيع المنتجات النفطية الأستاذ (حسين طالب عبود)، أوعز السيد مدير هيأة توزيع بغداد الأستاذ (محمد عبد الاله شبر) بأن تقوم المحطات الحكومية وابتداء من  شهر تشرين الثاني من العام الماضي  بتوزيع النفط الأبيض للمواطنين وحسب البطاقة الوقودية ويكون التوزيع من بداية الصباح حتى الساعة العاشرة ليلاَ  في العاصمة بغداد.ويقوم مدير الهيأة بمتابعة آلية توزيع النفط الأبيض إلى المواطنين بنفسه،</p>
-
-              <button class="read-btn">
-                  <a class="site" href="https://opdc.oil.gov.iq/">أقــرأ المــزيد </a>
-                  <i class="uil uil-arrow-right"></i></button>          </div>
-        </div>
-        <div class="swiper-slide">
-            <img src="images/4.jpg" alt="">
-          <div class="text-content">
-              <h2 class="title">هـــيأة تــوزيع بغداد <span>قسم برمجيات التوزيع والطباعة الرقمية</span></h2>
-            <p>حسب توجيهات السيد مدير عام شركة توزيع المنتجات النفطية الأستاذ (حسين طالب عبود)، أوعز السيد مدير هيأة توزيع بغداد الأستاذ (محمد عبد الاله شبر) بأن تقوم المحطات الحكومية وابتداء من  شهر تشرين الثاني من العام الماضي  بتوزيع النفط الأبيض للمواطنين وحسب البطاقة الوقودية ويكون التوزيع من بداية الصباح حتى الساعة العاشرة ليلاَ  في العاصمة بغداد.ويقوم مدير الهيأة بمتابعة آلية توزيع النفط الأبيض إلى المواطنين بنفسه،</p>
-
-              <button class="read-btn">
-                  <a href="https://opdc.oil.gov.iq/"  class="site">أقــرأ المــزيد </a>
-                  <i class="uil uil-arrow-right"></i></button>          </div>
-        </div>
-
-        <!-- <div class="swiper-slide">Slide 5</div>
-            <div class="swiper-slide">Slide 5</div>
-        <div class="swiper-slide">Slide 6</div>
-        <div class="swiper-slide">Slide 7</div>
-        <div class="swiper-slide">Slide 8</div>
-        <div class="swiper-slide">Slide 9</div> -->
-      </div>
-      <div class="swiper-button-next"></div>
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-pagination"></div>
-    </div>
-
-<!-- <div class="image">
-   <div class="image-overlay">
-
-</div></div> -->
-
-
-<!-- =============video section============== -->
-<br>
-<br>
-<br>
-
-<div class="video_container">
-  <div class="title_video">
-    <h1> يمكنك مشاهدة الفديو </h1>
-    <h2>كيـــفية ملئ استمارة تفــعيل بطــاقات أصحاب المركــبات التي تعمل على الوقود</h2>
-  </div>
-  <div class="container show-controls">
-      <div class="wrapper">
-          <div class="video-timeline">
-              <div class="progress-area">
-                  <span>00:00</span>
-                  <div class="progress-bar"></div>
-              </div>
-          </div>
-          <ul class="video-controls">
-              <li class="options left">
-                  <button class="volume"><i class="fa-solid fa-volume-high"></i></button>
-                  <input type="range" min="0" max="1" step="any">
-                  <div class="video-timer">
-                      <p class="current-time">00:00</p>
-                      <p class="separator"> / </p>
-                      <p class="video-duration">00:00</p>
-                  </div>
-              </li>
-              <li class="options center">
-                  <button class="skip-backward"><i class="fas fa-backward"></i></button>
-                  <button class="play-pause"><i class="fas fa-play"></i></button>
-                  <button class="skip-forward"><i class="fas fa-forward"></i></button>
-              </li>
-              <li class="options right">
-                  <div class="playback-content">
-                      <button class="playback-speed"><span class="material-symbols-rounded">slow_motion_video</span></button>
-                      <ul class="speed-options">
-                          <li data-speed="2">2x</li>
-                          <li data-speed="1.5">1.5x</li>
-                          <li data-speed="1" class="active">عادي</li>
-                          <li data-speed="0.75">0.75x</li>
-                          <li data-speed="0.5">0.5x</li>
-                      </ul>
-                  </div>
-                  <button class="pic-in-pic"><span class="material-icons">picture_in_picture_alt</span></button>
-                  <button class="fullscreen"><i class="fa-solid fa-expand"></i></button>
-              </li>
-          </ul>
-      </div>
-      <video src="2.mp4"></video>
-  </div>
+    </nav>
 </div>
-<!-- ===================end video section================== -->
+<!-- Navbar End -->
 
-
-<!-- ==============application section start============= -->
-
-        <!-- =========HOME ============= -->
-        <section class="section_home" id="home" dir="rtl">
-          <div class="section_wrap1">
-            <h1>استمارة التسجيل بطاقات ذوي المركبات التي تعمل على الوقود</h1>
-            <p>اضغط على الرابط لملئ الاستمارة</p>
-            <a href="/cars/create" class="fill_app">استمارة التسجيل</a>
-              <!-- <br> -->
+<!-- Carousel Start -->
+<div class="container-fluid p-0">
+    <div id="blog-carousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img class="w-100" src="img/carousel-1.jpg" alt="Image">
+                <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                    <h3 class="text-primary text-capitalize m-0">Gym & Fitness Center</h3>
+                    <h2 class="display-2 m-0 mt-2 mt-md-4 text-white font-weight-bold text-capitalize">Best Gym In Town</h2>
+                    <a href="" class="btn btn-lg btn-outline-light mt-3 mt-md-5 py-md-3 px-md-5">Join Us Now</a>
+                </div>
             </div>
-      <!-- <div class="section_wrap2">
-              <img src="scanner.jpg" alt="" id="img_home">
-      </div> -->
-    </section>
-
-    <!-- ====END SECTION HOME -->
-<!-- <div class="app_container" dir="rtl">
-  <h1>استمارة التسجيل لأصحاب المركبات التي تعمل على الوقود</h1>
-
-  <p>اضغط على الرابط لملئ الاستمارة</p>
-  <a href="#" class="fill_app">استمارة التسجيل</a>
-</div> -->
-<!-- ============== applicationend section================== -->
-
-
- <!-- contact section starts -->
-
- <div class="contact_wrapper" id="contact_wrapper">
-  <div class="container_contact" dir="rtl">
-      <div class="text">أتــــصل بنا </div>
-      <form action="#">
-         <div class="form-row">
-            <div class="input-data">
-               <input type="text" required>
-               <div class="underline"></div>
-               <label for="">الاسم الاول</label>
+            <div class="carousel-item">
+                <img class="w-100" src="img/carousel-2.jpg" alt="Image">
+                <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                    <h3 class="text-primary text-capitalize m-0">Gym & Fitness Center</h3>
+                    <h2 class="display-2 m-0 mt-2 mt-md-4 text-white font-weight-bold text-capitalize">Get Body In Shape</h2>
+                    <a href="" class="btn btn-lg btn-outline-light mt-3 mt-md-5 py-md-3 px-md-5">Join Us Now</a>
+                </div>
             </div>
-            <div class="input-data">
-               <input type="text" required>
-               <div class="underline"></div>
-               <label for="">الاسم الثاني</label>
-            </div>
-         </div>
-         <!-- <div class="form-row">
-            <div class="input-data">
-               <input type="text" required>
-               <div class="underline"></div>
-               <label for="">العنوان</label>
-            </div>
-            <div class="input-data">
-               <input type="text" required>
-               <div class="underline"></div>
-               <label for="">الاسم</label>
-            </div>
-         </div> -->
-         <div class="form-row">
-            <div class="input-data textarea">
-               <textarea rows="8" cols="80" required></textarea>
-               <br />
-               <div class="underline"></div>
-               <label for="">أكتب رسالتك هنا او أستفسارك</label>
-               <br />
-               <div class="form-row submit-btn">
-                  <div class="input-data">
-                     <div class="inner"></div>
-                     <input type="submit" value="اتــــصل بنا">
-                  </div>
-               </div>
-            </div>
-         </div>
-      </form>
-   </div>
-  </div>
-
-<!-- =============end contact======== -->
-
-
- <!-- ========================= map-section end ========================= -->
- <section class="map-section map-style-9">
-  <div class="map-container">
-      <object id="map" style="border:0; height: 500px; width: 100%;"
-      data="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3102.7887109309127!2d-77.44196278417968!3d38.95165507956235!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzjCsDU3JzA2LjAiTiA3N8KwMjYnMjMuMiJX!5e0!3m2!1sen!2sbd!4v1545420879707"></object>
-  </div>
-</section>
-<!-- ========================= map-section end ========================= -->
-
-<!-- =============start footer============= -->
-
-<footer class="footer" id="footer" dir="rtl">
-
-    <div class="footer__container">
-
-        <div class="box">
-            <img src="logo.png" alt="" >
-            <p>شــركة توزيــع المنتجات النفطية <br> هيــأة توزيــع بغــداد</p>
         </div>
+        <a class="carousel-control-prev" href="#blog-carousel" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#blog-carousel" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </a>
+    </div>
+</div>
+<!-- Carousel End -->
 
-        <div class="box">
-            <h4>أتــصل بنا</h4>
-            <p> <i class="fas fa-phone"></i> +9640077000000 </p>
-            <p> <i class="fas fa-envelope"></i> example@gmail.com </p>
-            <p> <i class="fas fa-map-marker-alt"></i> بغداد- مصفى الدورة </p>
-            <p> <i class="fas fa-map-marker-alt"></i> بغداد- الكيلاني </p>
+
+<!-- Gym Class Start -->
+<div class="container gym-class mb-5">
+    <div class="row px-3">
+        <div class="col-md-6 p-0">
+            <div class="gym-class-box d-flex flex-column align-items-end justify-content-center bg-primary text-right text-white py-5 px-5">
+                <i class="flaticon-six-pack"></i>
+                <h3 class="display-4 mb-3 text-white font-weight-bold">Body Building</h3>
+                <p>
+                    Lorem justo tempor sit aliquyam invidunt, amet vero ea dolor ipsum ut diam sit dolores, dolor
+                    sit eos sea sanctus erat lorem nonumy sanctus takimata. Kasd amet sit sadipscing at..
+                </p>
+                <a href="" class="btn btn-lg btn-outline-light mt-4 px-4">Join Now</a>
+            </div>
         </div>
-
-
-
-        <div class="box">
-          <h4> مواقع مهمة</h4>
-          <ul class="footer_list">
-              <li class="footer_item"><a href="https://oil.gov.iq/" class="footer_link">وزارة النفط</a></li>
-              <li class="footer_item"><a href="https://opdc.oil.gov.iq/" class="footer_link">شركة توزيع المنتجات النفطية </a></li>
-              <li class="footer_item"><a href="#" class="footer_link">هيأة توزيع بغداد</a></li>
-
-
-          </ul>
-      </div>
-
-
-      <div class="box">
-        <h4> مواقع التواصل الاجتماعي</h4>
-        <a href="#" class="fab fa-youtube"></a>
-        <a href="#" class="fab fa-facebook-f"></a>
-        <a href="#" class="fab fa-twitter"></a>
-        <a href="#" class="fab fa-instagram"></a>
+        <div class="col-md-6 p-0">
+            <div class="gym-class-box d-flex flex-column align-items-start justify-content-center bg-secondary text-left text-white py-5 px-5">
+                <i class="flaticon-bodybuilding"></i>
+                <h3 class="display-4 mb-3 text-white font-weight-bold">Muscle Building</h3>
+                <p>
+                    Lorem justo tempor sit aliquyam invidunt, amet vero ea dolor ipsum ut diam sit dolores, dolor
+                    sit eos sea sanctus erat lorem nonumy sanctus takimata. Kasd amet sit sadipscing at..
+                </p>
+                <a href="" class="btn btn-lg btn-outline-light mt-4 px-4">Join Now</a>
+            </div>
+        </div>
     </div>
+</div>
+<!-- Gym Class End -->
+
+
+<!-- About Start -->
+<div class="container py-5">
+    <div class="row align-items-center">
+        <div class="col-lg-6">
+            <img class="img-fluid mb-4 mb-lg-0" src="img/about.jpg" alt="Image">
+        </div>
+        <div class="col-lg-6">
+            <h2 class="display-4 font-weight-bold mb-4">10 Years Experience</h2>
+            <p>Labore vero lorem eos sed aliquy ipsum aliquy sed. Vero dolore dolore takima ipsum lorem rebum</p>
+            <div class="row py-2">
+                <div class="col-sm-6">
+                    <i class="flaticon-barbell display-2 text-primary"></i>
+                    <h4 class="font-weight-bold">Certified GYM Center</h4>
+                    <p>Ipsum sanctu dolor ipsum dolore sit et kasd duo</p>
+                </div>
+                <div class="col-sm-6">
+                    <i class="flaticon-medal display-2 text-primary"></i>
+                    <h4 class="font-weight-bold">Award Winning</h4>
+                    <p>Ipsum sanctu dolor ipsum dolore sit et kasd duo</p>
+                </div>
+            </div>
+            <a href="" class="btn btn-lg px-4 btn-outline-primary">Learn More</a>
+        </div>
     </div>
+</div>
+<!-- About End -->
 
-{{--    <div class="team">--}}
-{{--       <h3 class="team2">أعــداد وتــقديم :</h3>--}}
-{{--       <p class="team1"> م. </p>--}}
-{{--       <p class="team1">م. </p>--}}
-{{--    </div>--}}
-    <div class="copy_right">
-        <p><span id="add">جميع الحقوق محفوظة لشركة توزيع المنتجات النفطية. </span>&copy; 2022 <span id="add2">&reg;</span>
-           مـنذر عامر & عذراء فرج </p>
+
+<!-- Features Start -->
+<div class="container-fluid my-5">
+    <div class="row">
+        <div class="col-lg-4 p-0">
+            <div class="d-flex align-items-center bg-secondary text-white px-5" style="min-height: 300px;">
+                <i class="flaticon-training display-3 text-primary mr-3"></i>
+                <div class="">
+                    <h2 class="text-white mb-3">Progression</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu suscipit orci velit id libero
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 p-0">
+            <div class="d-flex align-items-center bg-primary text-white px-5" style="min-height: 300px;">
+                <i class="flaticon-weightlifting display-3 text-secondary mr-3"></i>
+                <div class="">
+                    <h2 class="text-white mb-3">Workout</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu suscipit orci velit id libero
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 p-0">
+            <div class="d-flex align-items-center bg-secondary text-white px-5" style="min-height: 300px;">
+                <i class="flaticon-treadmill display-3 text-primary mr-3"></i>
+                <div class="">
+                    <h2 class="text-white mb-3">Nutrition</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu suscipit orci velit id libero
+                    </p>
+                </div>
+            </div>
+        </div>
     </div>
-    <!-- <h1 class="credit"> created by <span>mr. web designer</span> | all rights reserved! </h1> -->
-
-  </footer>
-<!-- =============== end FOOTER============== -->
-
-    <!-- scroll top  -->
-    <a href="#header" class="fas fa-arrow-up" id="scroll-top"></a>
-    <!-- Swiper JS -->
-    <!-- this is for slider side img -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKZAuxH9xTzD2DLY2nKSPKrgRi2_y0ejs&libraries=places&callback=initAutocomplete&language=ar&region=EG
-         async defer"></script>
-
-    <!-- Initialize Swiper -->
-    <script>
-      var swiper = new Swiper(".mySwiper", {
-        spaceBetween: 30,
-        centeredSlides: true,
-        autoplay: {
-          delay: 2500,
-          disableOnInteraction: false,
-        },
-        pagination: {
-          el: ".swiper-pagination",
-          clickable: true,
-        },
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-        },
-      });
+</div>
+<!-- Features End -->
 
 
-      //////////// script video/////////////
-      const container = document.querySelector(".container"),
-mainVideo = container.querySelector("video"),
-videoTimeline = container.querySelector(".video-timeline"),
-progressBar = container.querySelector(".progress-bar"),
-volumeBtn = container.querySelector(".volume i"),
-volumeSlider = container.querySelector(".left input");
-currentVidTime = container.querySelector(".current-time"),
-videoDuration = container.querySelector(".video-duration"),
-skipBackward = container.querySelector(".skip-backward i"),
-skipForward = container.querySelector(".skip-forward i"),
-playPauseBtn = container.querySelector(".play-pause i"),
-speedBtn = container.querySelector(".playback-speed span"),
-speedOptions = container.querySelector(".speed-options"),
-pipBtn = container.querySelector(".pic-in-pic span"),
-fullScreenBtn = container.querySelector(".fullscreen i");
-let timer;
+<!-- GYM Feature Start -->
+<div class="container feature pt-5">
+    <div class="d-flex flex-column text-center mb-5">
+        <h4 class="text-primary font-weight-bold">Why Choose Us?</h4>
+        <h4 class="display-4 font-weight-bold">Benifits of Joining Our GYM</h4>
+    </div>
+    <div class="row">
+        <div class="col-md-6 mb-5">
+            <div class="row align-items-center">
+                <div class="col-sm-5">
+                    <img class="img-fluid mb-3 mb-sm-0" src="img/feature-1.jpg" alt="Image">
+                    <i class="flaticon-barbell"></i>
+                </div>
+                <div class="col-sm-7">
+                    <h4 class="font-weight-bold">Videos Instruction</h4>
+                    <p>Sit lorem ipsum et diam elitr est dolor sed duo. Guberg sea et et lorem dolor sed est sit invidunt, dolore tempor diam ipsum takima  erat tempor</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 mb-5">
+            <div class="row align-items-center">
+                <div class="col-sm-5">
+                    <img class="img-fluid mb-3 mb-sm-0" src="img/feature-2.jpg" alt="Image">
+                    <i class="flaticon-training"></i>
+                </div>
+                <div class="col-sm-7">
+                    <h4 class="font-weight-bold">Training Calendar</h4>
+                    <p>Sit lorem ipsum et diam elitr est dolor sed duo. Guberg sea et et lorem dolor sed est sit invidunt, dolore tempor diam ipsum takima  erat tempor</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 mb-5">
+            <div class="row align-items-center">
+                <div class="col-sm-5">
+                    <img class="img-fluid mb-3 mb-sm-0" src="img/feature-3.jpg" alt="Image">
+                    <i class="flaticon-trends"></i>
+                </div>
+                <div class="col-sm-7">
+                    <h4 class="font-weight-bold">Free Apps & WiFi</h4>
+                    <p>Sit lorem ipsum et diam elitr est dolor sed duo. Guberg sea et et lorem dolor sed est sit invidunt, dolore tempor diam ipsum takima  erat tempor</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 mb-5">
+            <div class="row align-items-center">
+                <div class="col-sm-5">
+                    <img class="img-fluid mb-3 mb-sm-0" src="img/feature-4.jpg" alt="Image">
+                    <i class="flaticon-support"></i>
+                </div>
+                <div class="col-sm-7">
+                    <h4 class="font-weight-bold">Community Support</h4>
+                    <p>Sit lorem ipsum et diam elitr est dolor sed duo. Guberg sea et et lorem dolor sed est sit invidunt, dolore tempor diam ipsum takima  erat tempor</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- GYM Feature End -->
 
-const hideControls = () => {
-    if(mainVideo.paused) return;
-    timer = setTimeout(() => {
-        container.classList.remove("show-controls");
-    }, 3000);
-}
-hideControls();
 
-container.addEventListener("mousemove", () => {
-    container.classList.add("show-controls");
-    clearTimeout(timer);
-    hideControls();
-});
+<!-- Subscribe Start -->
+<div class="subscribe container-fluid my-5 py-5 text-center">
+    <h4 class="display-4 text-white font-weight-bold mt-5 mb-3">Subscribe Our Newsletter</h4>
+    <p class="text-white mb-4">Subscribe and get Our latest article in your inbox</p>
+    <form class="form-inline justify-content-center mb-5">
+        <div class="input-group">
+            <input type="text" class="form-control-lg" placeholder="Your Email">
+            <div class="input-group-append">
+                <button class="btn btn-primary" type="submit">Subscribe</button>
+            </div>
+        </div>
+    </form>
+</div>
+<!-- Subscribe End -->
 
-const formatTime = time => {
-    let seconds = Math.floor(time % 60),
-    minutes = Math.floor(time / 60) % 60,
-    hours = Math.floor(time / 3600);
 
-    seconds = seconds < 10 ? `0${seconds}` : seconds;
-    minutes = minutes < 10 ? `0${minutes}` : minutes;
-    hours = hours < 10 ? `0${hours}` : hours;
+<!-- Class Timetable Start -->
+<div class="container gym-feature py-5">
+    <div class="d-flex flex-column text-center mb-5">
+        <h4 class="text-primary font-weight-bold">Class Timetable</h4>
+        <h4 class="display-4 font-weight-bold">Working Hours and Class Time</h4>
+    </div>
+    <div class="tab-class">
+        <ul class="nav nav-pills justify-content-center mb-4">
+            <li class="nav-item">
+                <a class="nav-link active" data-toggle="pill" href="#class-all">All Classes</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="pill" href="#class-cardio">Cardio</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="pill" href="#class-crossfit">Crossfit</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="pill" href="#class-powerlifting">Powerlifting</a>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <div id="class-all" class="container tab-pane p-0 active">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-lg m-0">
+                        <thead class="bg-secondary text-white text-center">
+                        <tr>
+                            <th>Time</th>
+                            <th>Monday</th>
+                            <th>Tuesday</th>
+                            <th>Wednesday</th>
+                            <th>Thursday</th>
+                            <th>Friday</th>
+                            <th>Saturday</th>
+                            <th>Sunday</th>
+                        </tr>
+                        </thead>
+                        <tbody class="text-center">
+                        <tr>
+                            <th class="bg-secondary text-white align-middle">6.00am - 8.00am</th>
+                            <td><h5>Cardio</h5>John Deo</td>
+                            <td></td>
+                            <td><h5>Crossfit</h5>Adam Phillips</td>
+                            <td></td>
+                            <td><h5>Power Lifting</h5>James Alien</td>
+                            <td></td>
+                            <td><h5>Cardio</h5>John Deo</td>
+                        </tr>
+                        <tr>
+                            <th class="bg-secondary text-white align-middle">10.00am - 12.00am</th>
+                            <td></td>
+                            <td><h5>Power Lifting</h5>James Alien</td>
+                            <td></td>
+                            <td><h5>Cardio</h5>John Deo</td>
+                            <td></td>
+                            <td><h5>Crossfit</h5>Adam Phillips</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th class="bg-secondary text-white align-middle">5.00pm - 7.00pm</th>
+                            <td><h5>Crossfit</h5>Adam Phillips</td>
+                            <td></td>
+                            <td><h5>Power Lifting</h5>James Alien</td>
+                            <td></td>
+                            <td><h5>Cardio</h5>John Deo</td>
+                            <td></td>
+                            <td><h5>Crossfit</h5>Adam Phillips</td>
+                        </tr>
+                        <tr>
+                            <th class="bg-secondary text-white align-middle">7.00pm - 9.00pm</th>
+                            <td></td>
+                            <td><h5>Cardio</h5>John Deo</td>
+                            <td></td>
+                            <td><h5>Crossfit</h5>Adam Phillips</td>
+                            <td></td>
+                            <td><h5>Power Lifting</h5>James Alien</td>
+                            <td></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div id="class-cardio" class="container tab-pane fade p-0">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-lg m-0">
+                        <thead class="bg-secondary text-white text-center">
+                        <tr>
+                            <th>Time</th>
+                            <th>Monday</th>
+                            <th>Tuesday</th>
+                            <th>Wednesday</th>
+                            <th>Thursday</th>
+                            <th>Friday</th>
+                            <th>Saturday</th>
+                            <th>Sunday</th>
+                        </tr>
+                        </thead>
+                        <tbody class="text-center">
+                        <tr>
+                            <th class="bg-secondary text-white align-middle">6.00am - 8.00am</th>
+                            <td class="bg-primary text-white"><h5 class="text-white">Cardio</h5>John Deo</td>
+                            <td></td>
+                            <td><h5>Crossfit</h5>Adam Phillips</td>
+                            <td></td>
+                            <td><h5>Power Lifting</h5>James Alien</td>
+                            <td></td>
+                            <td class="bg-primary text-white"><h5 class="text-white">Cardio</h5>John Deo</td>
+                        </tr>
+                        <tr>
+                            <th class="bg-secondary text-white align-middle">10.00am - 12.00am</th>
+                            <td></td>
+                            <td><h5>Power Lifting</h5>James Alien</td>
+                            <td></td>
+                            <td class="bg-primary text-white"><h5 class="text-white">Cardio</h5>John Deo</td>
+                            <td></td>
+                            <td><h5>Crossfit</h5>Adam Phillips</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th class="bg-secondary text-white align-middle">5.00pm - 7.00pm</th>
+                            <td><h5>Crossfit</h5>Adam Phillips</td>
+                            <td></td>
+                            <td><h5>Power Lifting</h5>James Alien</td>
+                            <td></td>
+                            <td class="bg-primary text-white"><h5 class="text-white">Cardio</h5>John Deo</td>
+                            <td></td>
+                            <td><h5>Crossfit</h5>Adam Phillips</td>
+                        </tr>
+                        <tr>
+                            <th class="bg-secondary text-white align-middle">7.00pm - 9.00pm</th>
+                            <td></td>
+                            <td class="bg-primary text-white"><h5 class="text-white">Cardio</h5>John Deo</td>
+                            <td></td>
+                            <td><h5>Crossfit</h5>Adam Phillips</td>
+                            <td></td>
+                            <td><h5>Power Lifting</h5>James Alien</td>
+                            <td></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div id="class-crossfit" class="container tab-pane fade p-0">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-lg m-0">
+                        <thead class="bg-secondary text-white text-center">
+                        <tr>
+                            <th>Time</th>
+                            <th>Monday</th>
+                            <th>Tuesday</th>
+                            <th>Wednesday</th>
+                            <th>Thursday</th>
+                            <th>Friday</th>
+                            <th>Saturday</th>
+                            <th>Sunday</th>
+                        </tr>
+                        </thead>
+                        <tbody class="text-center">
+                        <tr>
+                            <th class="bg-secondary text-white align-middle">6.00am - 8.00am</th>
+                            <td><h5>Cardio</h5>John Deo</td>
+                            <td></td>
+                            <td class="bg-primary text-white"><h5 class="text-white">Crossfit</h5>Adam Phillips</td>
+                            <td></td>
+                            <td><h5>Power Lifting</h5>James Alien</td>
+                            <td></td>
+                            <td><h5>Cardio</h5>John Deo</td>
+                        </tr>
+                        <tr>
+                            <th class="bg-secondary text-white align-middle">10.00am - 12.00am</th>
+                            <td></td>
+                            <td><h5>Power Lifting</h5>James Alien</td>
+                            <td></td>
+                            <td><h5>Cardio</h5>John Deo</td>
+                            <td></td>
+                            <td class="bg-primary text-white"><h5 class="text-white">Crossfit</h5>Adam Phillips</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th class="bg-secondary text-white align-middle">5.00pm - 7.00pm</th>
+                            <td class="bg-primary text-white"><h5 class="text-white">Crossfit</h5>Adam Phillips</td>
+                            <td></td>
+                            <td><h5>Power Lifting</h5>James Alien</td>
+                            <td></td>
+                            <td><h5>Cardio</h5>John Deo</td>
+                            <td></td>
+                            <td class="bg-primary text-white"><h5 class="text-white">Crossfit</h5>Adam Phillips</td>
+                        </tr>
+                        <tr>
+                            <th class="bg-secondary text-white align-middle">7.00pm - 9.00pm</th>
+                            <td></td>
+                            <td><h5>Cardio</h5>John Deo</td>
+                            <td></td>
+                            <td class="bg-primary text-white"><h5 class="text-white">Crossfit</h5>Adam Phillips</td>
+                            <td></td>
+                            <td><h5>Power Lifting</h5>James Alien</td>
+                            <td></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div id="class-powerlifting" class="container tab-pane fade p-0">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-lg m-0">
+                        <thead class="bg-secondary text-white text-center">
+                        <tr>
+                            <th>Time</th>
+                            <th>Monday</th>
+                            <th>Tuesday</th>
+                            <th>Wednesday</th>
+                            <th>Thursday</th>
+                            <th>Friday</th>
+                            <th>Saturday</th>
+                            <th>Sunday</th>
+                        </tr>
+                        </thead>
+                        <tbody class="text-center">
+                        <tr>
+                            <th class="bg-secondary text-white align-middle">6.00am - 8.00am</th>
+                            <td><h5>Cardio</h5>John Deo</td>
+                            <td></td>
+                            <td><h5>Crossfit</h5>Adam Phillips</td>
+                            <td></td>
+                            <td class="bg-primary text-white"><h5 class="text-white">Power Lifting</h5>James Alien</td>
+                            <td></td>
+                            <td><h5>Cardio</h5>John Deo</td>
+                        </tr>
+                        <tr>
+                            <th class="bg-secondary text-white align-middle">10.00am - 12.00am</th>
+                            <td></td>
+                            <td class="bg-primary text-white"><h5 class="text-white">Power Lifting</h5>James Alien</td>
+                            <td></td>
+                            <td><h5>Cardio</h5>John Deo</td>
+                            <td></td>
+                            <td><h5>Crossfit</h5>Adam Phillips</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th class="bg-secondary text-white align-middle">5.00pm - 7.00pm</th>
+                            <td><h5>Crossfit</h5>Adam Phillips</td>
+                            <td></td>
+                            <td class="bg-primary text-white"><h5 class="text-white">Power Lifting</h5>James Alien</td>
+                            <td></td>
+                            <td><h5>Cardio</h5>John Deo</td>
+                            <td></td>
+                            <td><h5>Crossfit</h5>Adam Phillips</td>
+                        </tr>
+                        <tr>
+                            <th class="bg-secondary text-white align-middle">7.00pm - 9.00pm</th>
+                            <td></td>
+                            <td><h5>Cardio</h5>John Deo</td>
+                            <td></td>
+                            <td><h5>Crossfit</h5>Adam Phillips</td>
+                            <td></td>
+                            <td class="bg-primary text-white"><h5 class="text-white">Power Lifting</h5>James Alien</td>
+                            <td></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Class Timetable End -->
 
-    if(hours == 0) {
-        return `${minutes}:${seconds}`
-    }
-    return `${hours}:${minutes}:${seconds}`;
-}
 
-videoTimeline.addEventListener("mousemove", e => {
-    let timelineWidth = videoTimeline.clientWidth;
-    let offsetX = e.offsetX;
-    let percent = Math.floor((offsetX / timelineWidth) * mainVideo.duration);
-    const progressTime = videoTimeline.querySelector("span");
-    offsetX = offsetX < 20 ? 20 : (offsetX > timelineWidth - 20) ? timelineWidth - 20 : offsetX;
-    progressTime.style.left = `${offsetX}px`;
-    progressTime.innerText = formatTime(percent);
-});
+<!-- BMI Calculation Start -->
+<div class="container-fluid position-relative bmi my-5">
+    <div class="container">
+        <div class="row px-3 align-items-center">
+            <div class="col-md-6">
+                <div class="pr-md-3 d-none d-md-block">
+                    <h4 class="text-primary">Body Mass Index </h4>
+                    <h4 class="display-4 text-white font-weight-bold mb-4">Whate is BMI?</h4>
+                    <p class="m-0 text-white">Vero elitr lorem magna justo magna justo at justo est ipsum sed clita lorem dolor ipsum sed. Lorem sea lorem vero. Sanct dolor clita clita rebum kasd magna erat diam</p>
+                </div>
+            </div>
+            <div class="col-md-6 bg-secondary py-5">
+                <div class="py-5 px-3">
+                    <h1 class="mb-4 text-white">Calculate your BMI</h1>
+                    <form>
+                        <div class="form-row">
+                            <div class="col form-group">
+                                <input type="text" class="form-control form-control-lg bg-dark text-white" placeholder="Weight (KG)">
+                            </div>
+                            <div class="col form-group">
+                                <input type="text" class="form-control form-control-lg bg-dark text-white" placeholder="Height (CM)">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col form-group">
+                                <input type="text" class="form-control form-control-lg bg-dark text-white" placeholder="Age">
+                            </div>
+                            <div class="col form-group">
+                                <select class="custom-select custom-select-lg bg-dark text-muted">
+                                    <option>Gender</option>
+                                    <option>Mal</option>
+                                    <option>Female</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col">
+                                <input type="button" class="btn btn-lg btn-block btn-dark border-light"
+                                       value="Calculate Now">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- BMI Calculation End -->
 
-videoTimeline.addEventListener("click", e => {
-    let timelineWidth = videoTimeline.clientWidth;
-    mainVideo.currentTime = (e.offsetX / timelineWidth) * mainVideo.duration;
-});
 
-mainVideo.addEventListener("timeupdate", e => {
-    let {currentTime, duration} = e.target;
-    let percent = (currentTime / duration) * 100;
-    progressBar.style.width = `${percent}%`;
-    currentVidTime.innerText = formatTime(currentTime);
-});
+<!-- Team Start -->
+<div class="container pt-5 team">
+    <div class="d-flex flex-column text-center mb-5">
+        <h4 class="text-primary font-weight-bold">Our Trainers</h4>
+        <h4 class="display-4 font-weight-bold">Meet Our Expert Trainers</h4>
+    </div>
+    <div class="row">
+        <div class="col-lg-3 col-md-6 mb-5">
+            <div class="card border-0 bg-secondary text-center text-white">
+                <img class="card-img-top" src="img/team-1.jpg" alt="">
+                <div class="card-social d-flex align-items-center justify-content-center">
+                    <a class="btn btn-outline-light rounded-circle text-center mr-2 px-0" style="width: 40px; height: 40px;" href="#"><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-outline-light rounded-circle text-center mr-2 px-0" style="width: 40px; height: 40px;" href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-outline-light rounded-circle text-center mr-2 px-0" style="width: 40px; height: 40px;" href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a class="btn btn-outline-light rounded-circle text-center mr-2 px-0" style="width: 40px; height: 40px;" href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+                <div class="card-body bg-secondary">
+                    <h4 class="card-title text-primary">Trainer Name</h4>
+                    <p class="card-text">Trainer</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-5">
+            <div class="card border-0 bg-secondary text-center text-white">
+                <img class="card-img-top" src="img/team-2.jpg" alt="">
+                <div class="card-social d-flex align-items-center justify-content-center">
+                    <a class="btn btn-outline-light rounded-circle text-center mr-2 px-0" style="width: 40px; height: 40px;" href="#"><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-outline-light rounded-circle text-center mr-2 px-0" style="width: 40px; height: 40px;" href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-outline-light rounded-circle text-center mr-2 px-0" style="width: 40px; height: 40px;" href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a class="btn btn-outline-light rounded-circle text-center mr-2 px-0" style="width: 40px; height: 40px;" href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+                <div class="card-body bg-secondary">
+                    <h4 class="card-title text-primary">Trainer Name</h4>
+                    <p class="card-text">Trainer</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-5">
+            <div class="card border-0 bg-secondary text-center text-white">
+                <img class="card-img-top" src="img/team-3.jpg" alt="">
+                <div class="card-social d-flex align-items-center justify-content-center">
+                    <a class="btn btn-outline-light rounded-circle text-center mr-2 px-0" style="width: 40px; height: 40px;" href="#"><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-outline-light rounded-circle text-center mr-2 px-0" style="width: 40px; height: 40px;" href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-outline-light rounded-circle text-center mr-2 px-0" style="width: 40px; height: 40px;" href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a class="btn btn-outline-light rounded-circle text-center mr-2 px-0" style="width: 40px; height: 40px;" href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+                <div class="card-body bg-secondary">
+                    <h4 class="card-title text-primary">Trainer Name</h4>
+                    <p class="card-text">Trainer</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-5">
+            <div class="card border-0 bg-secondary text-center text-white">
+                <img class="card-img-top" src="img/team-4.jpg" alt="">
+                <div class="card-social d-flex align-items-center justify-content-center">
+                    <a class="btn btn-outline-light rounded-circle text-center mr-2 px-0" style="width: 40px; height: 40px;" href="#"><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-outline-light rounded-circle text-center mr-2 px-0" style="width: 40px; height: 40px;" href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-outline-light rounded-circle text-center mr-2 px-0" style="width: 40px; height: 40px;" href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a class="btn btn-outline-light rounded-circle text-center mr-2 px-0" style="width: 40px; height: 40px;" href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+                <div class="card-body bg-secondary">
+                    <h4 class="card-title text-primary">Trainer Name</h4>
+                    <p class="card-text">Trainer</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Team End -->
 
-mainVideo.addEventListener("loadeddata", () => {
-    videoDuration.innerText = formatTime(mainVideo.duration);
-});
 
-const draggableProgressBar = e => {
-    let timelineWidth = videoTimeline.clientWidth;
-    progressBar.style.width = `${e.offsetX}px`;
-    mainVideo.currentTime = (e.offsetX / timelineWidth) * mainVideo.duration;
-    currentVidTime.innerText = formatTime(mainVideo.currentTime);
-}
+<!-- Testimonial Start -->
+<div class="container-fluid position-relative testimonial my-5">
+    <div class="container">
+        <div class="row px-3 align-items-center">
+            <div class="col-md-6 bg-secondary">
+                <div class="d-flex align-items-center px-3" style="min-height: 450px;">
+                    <div id="carouselId" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#carouselId" data-slide-to="0" class="active"></li>
+                            <li data-target="#carouselId" data-slide-to="1"></li>
+                            <li data-target="#carouselId" data-slide-to="2"></li>
+                        </ol>
+                        <div class="carousel-inner" role="listbox">
+                            <div class="carousel-item active">
+                                <div class="d-flex align-items-center mb-4 text-white">
+                                    <img width="80" height="80" class="rounded-circle bg-dark p-2" src="img/testimonial-1.jpg" alt="Image">
+                                    <div class="pl-4">
+                                        <h4 class="text-primary">Client Name</h4>
+                                        <p class="m-0">Profession</p>
+                                    </div>
+                                </div>
+                                <div class="testimonial-text position-relative border bg-dark text-white mb-5 p-4">
+                                    Sed ea amet kasd elitr stet nonumy, stet rebum et ipsum est duo elitr eirmod clita lorem. Dolores tempor voluptua ipsum sanctus clita
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="d-flex align-items-center mb-4 text-white">
+                                    <img width="80" height="80" class="rounded-circle bg-dark p-2" src="img/testimonial-2.jpg" alt="Image">
+                                    <div class="pl-4">
+                                        <h4 class="text-primary">Client Name</h4>
+                                        <p class="m-0">Profession</p>
+                                    </div>
+                                </div>
+                                <div class="testimonial-text position-relative border bg-dark text-white mb-5 p-4">
+                                    Sed ea amet kasd elitr stet nonumy, stet rebum et ipsum est duo elitr eirmod clita lorem. Dolores tempor voluptua ipsum sanctus clita
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="d-flex align-items-center mb-4 text-white">
+                                    <img width="80" height="80" class="rounded-circle bg-dark p-2" src="img/testimonial-3.jpg" alt="Image">
+                                    <div class="pl-4">
+                                        <h4 class="text-primary">Client Name</h4>
+                                        <p class="m-0">Profession</p>
+                                    </div>
+                                </div>
+                                <div class="testimonial-text position-relative border bg-dark text-white mb-5 p-4">
+                                    Sed ea amet kasd elitr stet nonumy, stet rebum et ipsum est duo elitr eirmod clita lorem. Dolores tempor voluptua ipsum sanctus clita
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="pl-md-3 d-none d-md-block">
+                    <h4 class="text-primary">Testimonial</h4>
+                    <h4 class="display-4 mb-4 text-white font-weight-bold">What Our Clients Say?</h4>
+                    <p class="m-0 text-white">Vero elitr lorem magna justo magna justo at justo est ipsum sed clita lorem dolor ipsum sed. Lorem sea lorem vero. Sanct dolor clita clita rebum kasd magna erat diam</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Testimonial End -->
 
-volumeBtn.addEventListener("click", () => {
-    if(!volumeBtn.classList.contains("fa-volume-high")) {
-        mainVideo.volume = 0.5;
-        volumeBtn.classList.replace("fa-volume-xmark", "fa-volume-high");
-    } else {
-        mainVideo.volume = 0.0;
-        volumeBtn.classList.replace("fa-volume-high", "fa-volume-xmark");
-    }
-    volumeSlider.value = mainVideo.volume;
-});
 
-volumeSlider.addEventListener("input", e => {
-    mainVideo.volume = e.target.value;
-    if(e.target.value == 0) {
-        return volumeBtn.classList.replace("fa-volume-high", "fa-volume-xmark");
-    }
-    volumeBtn.classList.replace("fa-volume-xmark", "fa-volume-high");
-});
+<!-- Blog Start -->
+<div class="container pt-5">
+    <div class="d-flex flex-column text-center mb-5">
+        <h4 class="text-primary font-weight-bold">Our Blog</h4>
+        <h4 class="display-4 font-weight-bold">Latest Article From Blog</h4>
+    </div>
+    <div class="row">
+        <div class="col-lg-6 mb-5 blog-item">
+            <img class="img-fluid mb-4" src="img/blog-1.jpg" alt="Image">
+            <div class="d-flex align-items-center mb-4">
+                <div class="d-flex flex-column align-items-center justify-content-center rounded-circle bg-primary text-white" style="width: 80px; height: 80px;">
+                    <small>01</small>
+                    <strong class="text-uppercase m-0 text-white">Jan</strong>
+                    <small>2045</small>
+                </div>
+                <div class="pl-3">
+                    <h3 class="font-weight-bold">Lorem ipsum dolor sit amet</h3>
+                    <div class="d-flex">
+                        <small class="mr-2 text-muted"><i class="fa fa-user"></i> Admin</small>
+                        <small class="mr-2 text-muted"><i class="fa fa-folder"></i> Web Design</small>
+                        <small class="mr-2 text-muted"><i class="fa fa-comments"></i> 15 Comments</small>
+                    </div>
+                </div>
+            </div>
+            <p>Eos kasd et sea labore. Et sed amet magna elitr amet, stet et amet erat nonumy labore lorem ut eos, sed ut at tempor diam no. Kasd sit ea amet lorem et sea, ipsum sed dolor dolores sed dolore eirmod vero dolor sed kasd accusam</p>
+            <a class="btn btn-outline-primary mt-2 px-3" href="">Read More <i class="fa fa-angle-right"></i></a>
+        </div>
+        <div class="col-lg-6 mb-5 blog-item">
+            <img class="img-fluid mb-4" src="img/blog-2.jpg" alt="Image">
+            <div class="d-flex align-items-center mb-4">
+                <div class="d-flex flex-column align-items-center justify-content-center rounded-circle bg-primary text-white" style="width: 80px; height: 80px;">
+                    <small>01</small>
+                    <strong class="text-uppercase m-0 text-white">Jan</strong>
+                    <small>2045</small>
+                </div>
+                <div class="pl-3">
+                    <h3 class="font-weight-bold">Lorem ipsum dolor sit amet</h3>
+                    <div class="d-flex">
+                        <small class="mr-2 text-muted"><i class="fa fa-user"></i> Admin</small>
+                        <small class="mr-2 text-muted"><i class="fa fa-folder"></i> Web Design</small>
+                        <small class="mr-2 text-muted"><i class="fa fa-comments"></i> 15 Comments</small>
+                    </div>
+                </div>
+            </div>
+            <p>Eos kasd et sea labore. Et sed amet magna elitr amet, stet et amet erat nonumy labore lorem ut eos, sed ut at tempor diam no. Kasd sit ea amet lorem et sea, ipsum sed dolor dolores sed dolore eirmod vero dolor sed kasd accusam</p>
+            <a class="btn btn-outline-primary mt-2 px-3" href="">Read More <i class="fa fa-angle-right"></i></a>
+        </div>
+    </div>
+</div>
+<!-- Blog End -->
 
-speedOptions.querySelectorAll("li").forEach(option => {
-    option.addEventListener("click", () => {
-        mainVideo.playbackRate = option.dataset.speed;
-        speedOptions.querySelector(".active").classList.remove("active");
-        option.classList.add("active");
-    });
-});
 
-document.addEventListener("click", e => {
-    if(e.target.tagName !== "SPAN" || e.target.className !== "material-symbols-rounded") {
-        speedOptions.classList.remove("show");
-    }
-});
+<!-- Footer Start -->
+<div class="footer container-fluid mt-5 py-5 px-sm-3 px-md-5 text-white">
+    <div class="row pt-5">
+        <div class="col-lg-3 col-md-6 mb-5">
+            <h4 class="text-primary mb-4">Get In Touch</h4>
+            <p><i class="fa fa-map-marker-alt mr-2"></i>123 Street, New York, USA</p>
+            <p><i class="fa fa-phone-alt mr-2"></i>+012 345 67890</p>
+            <p><i class="fa fa-envelope mr-2"></i>info@example.com</p>
+            <div class="d-flex justify-content-start mt-4">
+                <a class="btn btn-outline-light rounded-circle text-center mr-2 px-0" style="width: 40px; height: 40px;" href="#"><i class="fab fa-twitter"></i></a>
+                <a class="btn btn-outline-light rounded-circle text-center mr-2 px-0" style="width: 40px; height: 40px;" href="#"><i class="fab fa-facebook-f"></i></a>
+                <a class="btn btn-outline-light rounded-circle text-center mr-2 px-0" style="width: 40px; height: 40px;" href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a class="btn btn-outline-light rounded-circle text-center mr-2 px-0" style="width: 40px; height: 40px;" href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-5">
+            <h4 class="text-primary mb-4">Quick Links</h4>
+            <div class="d-flex flex-column justify-content-start">
+                <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Home</a>
+                <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>About Us</a>
+                <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Our Features</a>
+                <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Classes</a>
+                <a class="text-white" href="#"><i class="fa fa-angle-right mr-2"></i>Contact Us</a>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-5">
+            <h4 class="text-primary mb-4">Popular Links</h4>
+            <div class="d-flex flex-column justify-content-start">
+                <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Home</a>
+                <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>About Us</a>
+                <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Our Features</a>
+                <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Classes</a>
+                <a class="text-white" href="#"><i class="fa fa-angle-right mr-2"></i>Contact Us</a>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-5">
+            <h4 class="text-primary mb-4">Opening Hours</h4>
+            <h5 class="text-white">Monday - Friday</h5>
+            <p>8.00 AM - 8.00 PM</p>
+            <h5 class="text-white">Saturday - Sunday</h5>
+            <p>2.00 PM - 8.00 PM</p>
+        </div>
+    </div>
+    <div class="container border-top border-dark pt-5">
+        <p class="m-0 text-center text-white">
+            &copy; <a class="text-white font-weight-bold" href="#">Your Site Name</a>. All Rights Reserved. Designed by
+            <a class="text-white font-weight-bold" href="https://htmlcodex.com">HTML Codex</a>
+        </p>
+    </div>
+</div>
+<!-- Footer End -->
 
-fullScreenBtn.addEventListener("click", () => {
-    container.classList.toggle("fullscreen");
-    if(document.fullscreenElement) {
-        fullScreenBtn.classList.replace("fa-compress", "fa-expand");
-        return document.exitFullscreen();
-    }
-    fullScreenBtn.classList.replace("fa-expand", "fa-compress");
-    container.requestFullscreen();
-});
 
-speedBtn.addEventListener("click", () => speedOptions.classList.toggle("show"));
-pipBtn.addEventListener("click", () => mainVideo.requestPictureInPicture());
-skipBackward.addEventListener("click", () => mainVideo.currentTime -= 5);
-skipForward.addEventListener("click", () => mainVideo.currentTime += 5);
-mainVideo.addEventListener("play", () => playPauseBtn.classList.replace("fa-play", "fa-pause"));
-mainVideo.addEventListener("pause", () => playPauseBtn.classList.replace("fa-pause", "fa-play"));
-playPauseBtn.addEventListener("click", () => mainVideo.paused ? mainVideo.play() : mainVideo.pause());
-videoTimeline.addEventListener("mousedown", () => videoTimeline.addEventListener("mousemove", draggableProgressBar));
-document.addEventListener("mouseup", () => videoTimeline.removeEventListener("mousemove", draggableProgressBar));
-// end script vedio//////////////
-    </script>
+<!-- Back to Top -->
+<a href="#" class="btn btn-outline-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
 
-     <!-- custom js file link  -->
-     <script src="js/script9.js"></script>
 
-  </body>
+<!-- JavaScript Libraries -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+<script src="lib/easing/easing.min.js"></script>
+<script src="lib/waypoints/waypoints.min.js"></script>
+
+<!-- Contact Javascript File -->
+<script src="mail/jqBootstrapValidation.min.js"></script>
+<script src="mail/contact.js"></script>
+
+<!-- Template Javascript -->
+<script src="js/main.js"></script>
+</body>
+
 </html>
